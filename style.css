@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(-45deg, #0f0f0f, #1a1a1a, #0f0f0f, #1a1a1a);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: white;
+  text-align: center;
+  scroll-behavior: smooth;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header {
+  background: rgba(26, 26, 26, 0.9);
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 { margin: 0; color: #fbc531; }
+
+nav ul { list-style: none; padding: 0; display: flex; justify-content: center; margin: 0; }
+
+nav li { margin: 0 15px; }
+
+nav a { text-decoration: none; color: #f5f6fa; font-weight: bold; transition: color 0.3s; }
+
+nav a:hover, nav a.active { color: #fbc531; }
+
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; }
+.menu-toggle span { height: 3px; width: 25px; background: #fbc531; margin: 4px 0; transition: all 0.3s; }
+
+section { padding: 60px 20px; border-bottom: 1px solid #333; opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+section.fade-in-visible { opacity: 1; transform: translateY(0); }
+
+.carousel { display: flex; overflow-x: auto; scroll-behavior: smooth; }
+.carousel img { flex: 0 0 auto; width: 300px; margin: 10px; border-radius: 10px; transition: transform 0.3s; }
+.carousel img:hover { transform: scale(1.1); }
+
+.video-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.video-item { width: 300px; text-align: center; }
+.video-item img { width: 100%; border-radius: 10px; transition: transform 0.3s; }
+.video-item img:hover { transform: scale(1.05); }
+.video-item p { margin-top: 5px; }
+
+button { padding: 10px 20px; border: none; border-radius: 10px; background: #fbc531; color: black; font-weight: bold; cursor: pointer; margin-top: 20px; transition: background 0.3s, transform 0.3s; }
+button:hover { background: #ffc700; transform: scale(1.05); }
+
+footer { background: #1a1a1a; padding: 15px; font-size: 14px; }
+
+@media screen and (max-width: 768px) {
+  nav ul { display: none; flex-direction: column; background: rgba(26,26,26,0.95); position: absolute; top: 60px; right: 20px; width: 200px; border-radius: 10px; padding: 20px; }
+  nav ul.show { display: flex; }
+  .menu-toggle { display: flex; }
+}
